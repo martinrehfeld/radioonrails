@@ -1,0 +1,71 @@
+<%#--
+# Radio - a intranet based recorder of audio streams
+# Copyright (C) 2006 GL Networks, Martin Rehfeld <martin.rehfeld@glnetworks.de>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
+#++ -%>
+
+<% if @message || !@recording || @recording.frozen? -%>
+  <%# show message -%>
+  <div id="selected_recording_message"><%=h @message %></div>
+<% elsif @recording.scheduled? && !@recording.about_to_begin? %>
+  <%# Recording scheduled -> edit FORM -%>
+  <% form_remote_tag_with_busy ['recording_list_busy_indicator','selected_recording_busy_indicator'],
+                               :url => recording_path(@recording), :html => { :method => :put } do %>
+    <table class="form">
+      <%= render :partial => 'form' %>
+      <tr><td colspan="2" align="right">
+        <input type="reset" value="<%= _('Revert changes') %>">
+        <%= submit_tag _('Change schedule') %>
+      </td></tr>
+    </table>
+  <% end -%>
+  <%= link_to_remote_with_busy _('Cancel recording'), 'selected_recording_busy_indicator',
+                               :url => recording_path(@recording),
+                               :confirm => _('Really cancel?'),
+                               :method => :delete %></td>
+<% else -%>
+  <h1><%= in_place_editor_field :recording, :title, {}, { :size => 80, :save_text => _('save'), :cancel_text => _('cancel'), :saving_text => _('saving...'), :click_to_edit_text => _('click to edit title'), :highlightcolor => '#cccbd0', :highlightendcolor => '#c5e6f6' } %></h1>
+  <h2><%= recording_info_text(@recording) %></h2>
+  <% if @recording.done? -%>
+    <%# Recording done -> allow download or deletion -%>
+    <table class="grid">
+      <tr>
+        <td width="250px" style="line-height:1.6em;">
+          <%= link_to _('Download...'), "#{recording_path(@recording)}.mp3" %>&nbsp; 
+          <%= link_to_remote_with_busy _('Delete recording...'), 'selected_recording_busy_indicator',
+                                       :url => recording_path(@recording),
+                                       :confirm => _('Really cancel?'),
+                                       :method => :delete %>
+        </td>
+        <td></td>
+        <td width="210px" align="center">&mdash;&nbsp;<%= _('listen now') %>&nbsp;&mdash;<br /><%= inline_mp3_player(@recording.storage_url) %></td>
+      </tr>
+     </table>
+  <% elsif @recording.missed? -%>
+    <%# Recording missed -> allow deletion -%>
+    <%= link_to_remote_with_busy _('Delete recording...'), 'selected_recording_busy_indicator',
+                                 :url => recording_path(@recording),
+                                 :confirm => _('Really cancel?'),
+                                 :method => :delete %>
+  <% elsif @recording.recording? -%>
+    <%# Recording still recording -> allow abort -%>
+    <%= link_to_remote_with_busy _('Abort recording...'), 'selected_recording_busy_indicator',
+                                 :url => abort_recording_path(@recording),
+                                 :confirm => _('Really abort?'),
+                                 :method => :put %>
+  
+  <% end -%>
+<% end -%>

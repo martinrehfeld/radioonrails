@@ -1,0 +1,64 @@
+<%#--
+# Radio - a intranet based recorder of audio streams
+# Copyright (C) 2006 GL Networks, Martin Rehfeld <martin.rehfeld@glnetworks.de>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
+#++ -%>
+
+<!-- Selected recording block -->
+<div id="selected_recording_headline" class="round_headline">
+  <table class="grid"><tr>
+  <td width="33%"></td>
+  <td width="34%" align="center"><%= _('Selected Recording') %></td>
+  <td width="33%" align="right"><%= image_tag('busy.gif', :id => 'selected_recording_busy_indicator',:style => 'visibility:hidden') %></td>
+  </tr></table>
+</div>
+<div id="selected_recording_block" class="round_block">
+  <div id="selected_recording_content">
+    <%= render :partial => 'show' %>
+  </div>
+</div>
+
+<!-- Recording list block -->
+<div id="recording_list_headline" class="round_headline">
+  <table class="grid"><tr>
+  <td width="33%" align="left">  </td>
+  <td width="34%" align="center"><%= _('Recording List') %></td>
+  <td width="33%" align="right"><%= image_tag('busy.gif', :id => 'recording_list_busy_indicator',:style => 'visibility:hidden') %>
+    <%= link_to_remote_with_busy image_tag('refresh.gif', :style => 'border:0'), 'recording_list_busy_indicator',
+                                 { :url => recordings_path, :method => :get, :update => 'recording_list_content' },
+                                 :class => 'nohover' %>
+  </td>
+  </tr></table>
+</div>
+<div id="recording_list_block" class="round_block">
+  <%= link_to_remote_with_busy _('New Recording...'), 'recording_list_busy_indicator',
+                               { :url => new_recording_path, :method => :get } %>&nbsp; 
+  <%= link_to _('Manage stations...'), stations_path %>
+  <!-- New recording form (initially hidden and empty) -->
+  <div id="new_recording_form" style="display:none">
+  </div>
+  
+  <!-- Table with recording list (use #recording_table_row_<id> as tr ids) -->
+  <div id="recording_list_content">
+    <%= render :partial => 'list' %>
+  </div>
+  <!-- Update recording list automatically every 30 seconds -->
+  <%= periodically_call_remote_with_busy 'recording_list_busy_indicator',
+                                         :frequency => 30,
+                                         :url => recordings_path,
+                                         :update => 'recording_list_content',
+                                         :method => :get %>
+</div>

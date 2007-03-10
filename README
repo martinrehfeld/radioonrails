@@ -1,0 +1,39 @@
+Radio is a intranet based recorder for audio streams. It has been developed
+for demonstration purposes of the Ruby on Rails framework.
+
+To get started you will have to create at least a development database and
+enter its connection information in config/database.yml
+
+Then issue
+
+   rake migrate
+
+to create the schema and
+
+   rake backgroundrb:start
+
+to activate the scheduling.
+
+Start your local development web server
+
+   script/server
+
+and point your browser to
+
+   http://localhost:3000/                OR
+   http://localhost:3000/recordings      (for the main GUI)
+   http://localhost:3000/recordings.rss  (to get a Podcast RSS feed)
+   http://localhost:3000/stations        (to administer radio stations)
+
+Check <http://www.glnetworks.de/radio_project> for updated releases.
+
+Radio is copyright (c) 2006-2007 GL Networks,
+Martin Rehfeld <martin.rehfeld@glnetworks.de>
+
+Radio is licensed under the terms of the GNU General Public License (GPL),
+version 2.0 or later, as published by the Free Software Foundation.  See
+the file COPYING [included] or <http://www.gnu.org/copyleft/gpl.txt> for
+the terms of the latest version of the GNU General Public License.
+
+Radio comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.

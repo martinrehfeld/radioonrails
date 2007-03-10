@@ -1,0 +1,16 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  title: recording one
+  duration: 30
+  starttime: <%= Time.now %>
+  station_id: 1
+  state: scheduled
+two:
+  id: 2
+  title: recording two
+  duration: 15
+  starttime: <%= 1.hour.from_now %>
+  station_id: 2
+  state: scheduled
+  

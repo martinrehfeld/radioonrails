@@ -1,0 +1,375 @@
+# Radio - a intranet based recorder of audio streams
+# Copyright (C) 2006 GL Networks, Martin Rehfeld <martin.rehfeld@glnetworks.de>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: radio 1.1\n"
+"POT-Creation-Date: 2007-01-28 20:35+0100\n"
+"PO-Revision-Date: 2007-01-23 14:29+0100\n"
+"Last-Translator: Martin Rehfeld <martin.rehfeld@glnetworks.de>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: app/controllers/recordings_controller.rb:115
+msgid "The recording will start soon and cannot be changed anymore!"
+msgstr ""
+
+#: app/controllers/recordings_controller.rb:182
+msgid "nothing selected..."
+msgstr ""
+
+#: app/controllers/recordings_controller.rb:202
+msgid "untitled recording"
+msgstr ""
+
+#: app/controllers/recordings_controller.rb:207
+msgid "Recording could not be found!"
+msgstr ""
+
+#: app/controllers/stations_controller.rb:59
+msgid "Station was successfully created."
+msgstr ""
+
+#: app/controllers/stations_controller.rb:76
+msgid "Station was successfully updated."
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:26
+msgid "scheduled"
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:28
+msgid "recording in progress..."
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:30
+msgid "recording is being aborted..."
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:32
+msgid "done"
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:34
+msgid "missed"
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:36
+msgid "unknown state :-("
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:45 app/models/recording.rb:131
+msgid "unknown station"
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:53 app/models/recording.rb:144
+#: app/views/recordings/_list_row.rhtml:4 app/views/recordings/podcast.rxml:48
+msgid "DATE_FMT"
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:53 app/models/recording.rb:144
+#: app/views/recordings/podcast.rxml:48
+msgid "at"
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:53 app/models/recording.rb:144
+#: app/views/recordings/_list_row.rhtml:4 app/views/recordings/podcast.rxml:48
+msgid "TIME_FMT"
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:53 app/helpers/recordings_helper.rb:65
+#: app/views/recordings/_form.rhtml:9 app/views/recordings/podcast.rxml:48
+msgid "o'clock"
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:55 app/views/recordings/podcast.rxml:48
+msgid "recorded on"
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:57
+msgid "recording since"
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:59
+msgid "will be recorded on"
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:61
+msgid "could not be recorded on"
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:61
+msgid "(due to technical problems)"
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:65
+msgid "until"
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:67
+msgid "and is being finished"
+msgstr ""
+
+#: app/helpers/recordings_helper.rb:71 app/models/recording.rb:144
+#: app/views/recordings/podcast.rxml:48
+msgid "on"
+msgstr ""
+
+#: app/models/station.rb:-
+msgid "station"
+msgstr ""
+
+#: app/models/station.rb:-
+msgid "Station|Station Name"
+msgstr ""
+
+#: app/models/station.rb:-
+msgid "Station|Station Logo"
+msgstr ""
+
+#: app/models/station.rb:-
+msgid "Station|Stream URL"
+msgstr ""
+
+#: app/models/station.rb:-
+msgid "Station|EPG URL"
+msgstr ""
+
+#: app/models/recording.rb:-
+msgid "recording"
+msgstr ""
+
+#: app/models/recording.rb:-
+msgid "Recording|Recording List"
+msgstr ""
+
+#: app/models/recording.rb:-
+msgid "Recording|Recording start time"
+msgstr ""
+
+#: app/models/recording.rb:-
+msgid "Recording|Recording duration"
+msgstr ""
+
+#: app/models/recording.rb:-
+msgid "Recording|Recording Station"
+msgstr ""
+
+#: app/models/recording.rb:-
+msgid "Recording|Recording Recorder"
+msgstr ""
+
+#: app/models/recording.rb:124
+msgid "FILENAME_DATETIME_FMT"
+msgstr ""
+
+#: app/models/recording.rb:141
+msgid "MP3_ALBUM_NAME"
+msgstr ""
+
+#: app/models/recording.rb:144
+msgid "Recorded at"
+msgstr ""
+
+#: app/views/layouts/application.rhtml:22
+#: app/views/layouts/application.rhtml:23
+#: app/views/layouts/application.rhtml:53 app/views/recordings/podcast.rxml:22
+msgid "APPLICATION_TITLE"
+msgstr ""
+
+#: app/views/layouts/application.rhtml:54
+msgid "APPLICATION_SUBTITLE"
+msgstr ""
+
+#: app/views/layouts/application.rhtml:63
+msgid "APPLICATION_LICENSE"
+msgstr ""
+
+#: app/views/recordings/index.rhtml:7
+msgid "Selected Recording"
+msgstr ""
+
+#: app/views/recordings/index.rhtml:21
+msgid "Recording List"
+msgstr ""
+
+#: app/views/recordings/index.rhtml:30
+msgid "New Recording..."
+msgstr ""
+
+#: app/views/recordings/index.rhtml:49
+msgid "Manage stations..."
+msgstr ""
+
+#: app/views/recordings/_form.rhtml:4 app/views/recordings/_list.rhtml:7
+msgid "Title"
+msgstr ""
+
+#: app/views/recordings/_form.rhtml:8
+msgid "Start time"
+msgstr ""
+
+#: app/views/recordings/_form.rhtml:9
+msgid "MONTH_NAMES"
+msgstr ""
+
+#: app/views/recordings/_form.rhtml:11
+msgid "Duration (minutes)"
+msgstr ""
+
+#: app/views/recordings/_form.rhtml:15 app/views/recordings/_list.rhtml:6
+msgid "Station"
+msgstr ""
+
+#: app/views/recordings/_list.rhtml:5
+msgid "Time"
+msgstr ""
+
+#: app/views/recordings/_list.rhtml:8
+msgid "State"
+msgstr ""
+
+#: app/views/recordings/_show.rhtml:13
+msgid "Revert changes"
+msgstr ""
+
+#: app/views/recordings/_show.rhtml:14
+msgid "Change schedule"
+msgstr ""
+
+#: app/views/recordings/_show.rhtml:18
+msgid "Cancel recording"
+msgstr ""
+
+#: app/views/recordings/_show.rhtml:20 app/views/recordings/_show.rhtml:33
+#: app/views/recordings/_show.rhtml:44
+msgid "Really cancel?"
+msgstr ""
+
+#: app/views/recordings/_show.rhtml:23
+msgid "save"
+msgstr ""
+
+#: app/views/recordings/_show.rhtml:23
+msgid "cancel"
+msgstr ""
+
+#: app/views/recordings/_show.rhtml:23
+msgid "saving..."
+msgstr ""
+
+#: app/views/recordings/_show.rhtml:23
+msgid "click to edit title"
+msgstr ""
+
+#: app/views/recordings/_show.rhtml:30
+msgid "Download..."
+msgstr ""
+
+#: app/views/recordings/_show.rhtml:31 app/views/recordings/_show.rhtml:42
+msgid "Delete recording..."
+msgstr ""
+
+#: app/views/recordings/_show.rhtml:37
+msgid "listen now"
+msgstr ""
+
+#: app/views/recordings/_show.rhtml:48
+msgid "Abort recording..."
+msgstr ""
+
+#: app/views/recordings/_show.rhtml:50
+msgid "Really abort?"
+msgstr ""
+
+#: app/views/recordings/_new.rhtml:5
+msgid "Electronic Program Guide"
+msgstr ""
+
+#: app/views/recordings/_new.rhtml:15
+msgid "Cancel"
+msgstr ""
+
+#: app/views/recordings/_new.rhtml:16
+msgid "Schedule recording"
+msgstr ""
+
+#: app/views/stations/index.rhtml:1
+msgid "Listing stations"
+msgstr ""
+
+#: app/views/stations/index.rhtml:7 app/views/stations/_form.rhtml:2
+msgid "Station|Name"
+msgstr ""
+
+#: app/views/stations/index.rhtml:8 app/views/stations/_form.rhtml:4
+msgid "Station|Logo"
+msgstr ""
+
+#: app/views/stations/index.rhtml:9 app/views/stations/_form.rhtml:6
+msgid "Station|Stream url"
+msgstr ""
+
+#: app/views/stations/index.rhtml:10 app/views/stations/_form.rhtml:8
+msgid "Station|Epg url"
+msgstr ""
+
+#: app/views/stations/index.rhtml:19
+msgid "Edit"
+msgstr ""
+
+#: app/views/stations/index.rhtml:20
+msgid "Destroy"
+msgstr ""
+
+#: app/views/stations/index.rhtml:20
+msgid "Really delete?"
+msgstr ""
+
+#: app/views/stations/index.rhtml:27 app/views/stations/new.rhtml:1
+msgid "New station"
+msgstr ""
+
+#: app/views/stations/new.rhtml:10
+msgid "Create"
+msgstr ""
+
+#: app/views/stations/new.rhtml:14 app/views/stations/edit.rhtml:14
+msgid "Back"
+msgstr ""
+
+#: app/views/stations/edit.rhtml:1
+msgid "Editing station"
+msgstr ""
+
+#: app/views/stations/edit.rhtml:10
+msgid "Update"
+msgstr ""
+
+#: app/views/recordings/podcast.rxml:22
+msgid "Podcast"
+msgstr ""
+
+#: app/views/recordings/podcast.rxml:24
+msgid ""
+"All recordings made with the virtual radio recorder are available in this "
+"Podcast"
+msgstr ""

@@ -1,0 +1,28 @@
+<h1><%=h _('Listing stations') %></h1>
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<table>
+  <tr>
+    <th><%=h _('Station|Name') %></th>
+    <th><%=h _('Station|Logo') %></th>
+    <th><%=h _('Station|Stream url') %></th>
+    <th><%=h _('Station|Epg url') %></th>
+  </tr>
+  
+<% for station in @stations %>
+  <tr>
+    <td><%=h station.name %></td>
+    <td><%=h station.logo %></td>
+    <td><%=h station.stream_url %></td>
+    <td><%=h station.epg_url %></td>
+    <td><%= link_to _('Edit'), edit_station_path(station) %></td>
+    <td><%= link_to _('Destroy'), station_path(station), :confirm => _('Really delete?'), :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to _('New station'), new_station_path %><br /><br />
+<%= link_to _('Back'), recordings_path %>

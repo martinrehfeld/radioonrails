@@ -1,0 +1,58 @@
+#--
+# Radio - a intranet based recorder of audio streams
+# Copyright (C) 2006 GL Networks, Martin Rehfeld <martin.rehfeld@glnetworks.de>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
+#++
+#
+# provide Podcast formatted RSS feed for all available recordings
+
+rss_title       = _('APPLICATION_TITLE') + ' ' + _('Podcast')
+rss_link        = url_for(:only_path => false, :controller => 'recordings', :action => 'index')
+rss_description = _('All recordings made with the virtual radio recorder are available in this Podcast')
+
+xml.instruct!
+
+xml.rss 'version' => '2.0', 'xmlns:dc' => 'http://purl.org/dc/elements/1.1/' do
+  xml.channel do
+
+    xml.title         rss_title
+    xml.link          rss_link
+    xml.description   rss_description
+    xml.lastBuildDate @recordings.max{|a,b| a.endtime <=> b.endtime}.endtime.to_s(:rfc822)
+    xml.language      Locale.get
+    xml.docs          'http://blogs.law.harvard.edu/tech/rss'
+    xml.image do
+      xml.url         full_url(image_path('kofferradio.jpg'))
+      xml.title       rss_title
+      xml.link        rss_link
+      xml.description rss_description
+    end
+
+    @recordings.each do |recording|
+      next unless recording.filename
+      xml.item do
+        xml.title       recording.title
+        xml.link        "#{recording_url(recording)}.mp3"
+        xml.description _('recorded on') + ' ' + recording.starttime.strftime(_('DATE_FMT') + ' ' + _('at') + ' ' + _('TIME_FMT')) + ' ' + _("o'clock") + ' ' + _('on') + ' ' + recording.station_name
+        xml.pubDate     recording.endtime.to_s(:rfc822)
+        xml.guid        "#{recording_url(recording)}.mp3", :isPermaLink => false
+        xml.author      recording.station_name
+        xml.enclosure   :url => full_url(recording.storage_url), :length => File.size(recording.filename), :type => 'audio/mpeg'
+      end
+    end
+
+  end
+end
