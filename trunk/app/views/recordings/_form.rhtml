@@ -1,0 +1,34 @@
+<%#--
+# Radio - a intranet based recorder of audio streams
+# Copyright (C) 2006 GL Networks, Martin Rehfeld <martin.rehfeld@glnetworks.de>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
+#++ -%>
+
+<tr>
+  <td class="label"><label for="recording_title"><%= _('Title') %></label></td>
+  <td><%= text_field 'recording', 'title', :size => 80 %></td>
+</tr>
+<tr>
+  <td class="label"><label for="recording_starttime"><%= _('Start time') %></label></td>
+  <td><%= datetime_select('recording', 'starttime', :start_year => Time.now.year, :use_month_names => _('MONTH_NAMES').split, :order => [:day, :month, :year]) %>&nbsp;<%= _("o'clock") %></td>
+<tr>
+  <td><label for="recording_duration"><%= _('Duration (minutes)') %></label></td>
+  <td><%= text_field('recording', 'duration', :size => 5) %></td>
+</tr>
+<tr>
+  <td class="label"><label for="recording_station"><%= _('Station') %></label></td>
+  <td><%= select('recording', 'station_id', Station.select_list) %></td>
+</tr>

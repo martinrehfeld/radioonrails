@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  name: Station1
+  stream_url: proto://stream.server1
+two:
+  id: 2
+  name: Station2
+  stream_url: proto://stream.server2
+  

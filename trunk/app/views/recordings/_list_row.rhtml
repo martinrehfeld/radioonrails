@@ -1,0 +1,25 @@
+<%#--
+# Radio - a intranet based recorder of audio streams
+# Copyright (C) 2006 GL Networks, Martin Rehfeld <martin.rehfeld@glnetworks.de>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
+#++ -%>
+
+<tr id="<%= "recording_table_row_#{list_row.id}"%>" class="<%= "hoverable#{' active' if list_row.id == session[:active_recording_id]}"%>" onclick="<%= recordings_list_row_onclick_handler(list_row) %>">
+  <td><%=h(list_row.starttime.strftime(_('DATE_FMT') + ', ' + _('TIME_FMT'))) + "&nbsp;#{_("o'clock")}" %></td>
+  <td><%= recording_station_name_or_logo(list_row.station) %></td>
+  <td><%=h list_row.title %></td>
+  <td><%= recording_state_text(list_row) %></td>
+</tr>

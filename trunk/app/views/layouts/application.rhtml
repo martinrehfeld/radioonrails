@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Radio - a intranet based recorder of audio streams
+Copyright (C) 2006 GL Networks, Martin Rehfeld <martin.rehfeld@glnetworks.de>
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<%= Locale.get %>" lang="<%= Locale.get %>">
+<head>
+  <title><%= _('APPLICATION_TITLE') %></title>
+  <meta name="Description" content="<%= _('APPLICATION_TITLE') %>" />
+  <meta name="Author" content="Martin Rehfeld" />
+  <meta name="Copyright" content="2006-2007 GL Networks, Martin Rehfeld" />
+  <meta name="Content-language" content="<%= Locale.get %>" />
+  <meta http-equiv="Content-Type" content="text/html;charset=<%= Locale.charset %>" />
+  <meta name="generator" content="Ruby on Rails" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="<%= "#{recordings_url}.rss"%>" />
+  <%= stylesheet_link_tag 'radio', :media => 'all' %>
+  <%= stylesheet_link_tag 'niftycorners' %>
+
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag 'niftycube' %>
+  <%= javascript_include_tag 'niftylayout' %>
+</head>
+<body>
+<div id="page">
+  <!-- Title area -->
+  <div id="page_header">
+    <div style="float:left">
+      <%= link_to image_tag('kofferradio.jpg', :border => 0),
+                  url_for(:controller => 'recordings', :action => 'index'),
+                  :class => 'nohover' %>
+    </div>
+    <div id="language_selector" style="float:right">
+      <% AVAILABLE_LOCALES.each do |lang| -%>
+        <%= link_to image_tag("#{lang}.gif", :border => 0),
+                    {:action => 'set_language', :lang => lang },
+                    :class => 'nohover' %>
+      <% end -%>
+    </div>
+    <h1><%= _('APPLICATION_TITLE') %></h1>
+    <h2><%= _('APPLICATION_SUBTITLE') %></h2>
+  </div>
+  <div id="page_content" style="clear:left">
+    <%= yield %>
+  </div>
+  
+  <div id="page_footer">
+    <p>Copyright (C) 2006 <%= link_to 'GL Networks', 'http://www.glnetworks.de' %>,
+       <%= mail_to 'martin.rehfeld@glnetworks.de', 'Martin Rehfeld' %>.
+       <%= _('APPLICATION_LICENSE') %></p>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+== Radio
+
+Radio is a intranet based recorder for audio streams. It has been developed
+for demonstration purposes of the Ruby on Rails framework.
+
+Radio is copyright (c) 2006-2007 GL Networks <http://www.glnetworks.de/>,
+Martin Rehfeld <martin.rehfeld@glnetworks.de>
+
+Radio is licensed under the terms of the GNU General Public License (GPL),
+version 2.0 or later, as published by the Free Software Foundation.  See
+the file COPYING [included] or <http://www.gnu.org/copyleft/gpl.txt> for
+the terms of the latest version of the GNU General Public License.
+
+Radio comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Check <http://www.glnetworks.de/rails_project> for updates.
+
+=== Model Documentation
+
+* Recorder (threaded recording and convertion to MP3 using Mplayer and LAME)
+
+* Station (define radio stations as recording sources)
+
+* Recording (keep track of Recordings and their state)
+
+=== Controller Documentation
+
+* RecordingsController (main user GUI)
+
+* StationsController   (scaffolded admin GUI for radio stations)
+
+----
